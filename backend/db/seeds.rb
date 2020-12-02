@@ -28,7 +28,7 @@ p8 = Product.create(brand: "belif", name: "Eucalyptus Herbal Extract Toner", ski
 p9 = Product.create(brand: "Mario Badescu", name: "Vitamin C Serum", skin_type: "Normal", step: "Serum", img_url: "https://www.mariobadescu.com/content/images/thumbs/0085191_vitamin-c-serum.jpeg")
 p10 = Product.create(brand: "Mario Badescu", name: "Hydro Moisturizer With Vitamin C", skin_type: "Dry", step: "Serum", img_url: "https://images.ulta.com/is/image/Ulta/2209853?$detail$")
 p11 = Product.create(brand: "Ciracle", name: "Pore Control Tightening Serum", skin_type: "Oily", step: "Serum", img_url: "Pore Control Tightening Serum")
-p12 = Product.create(brand: "La Mer", name: "The Regenerating Serum", skin_type: "Combination" step: "Serum", img_url: "https://m.cremedelamer.com/media/export/cms/products/680x680/LM_SKU_5R0P01_105462_680x680_0.png")
+p12 = Product.create(brand: "La Mer", name: "The Regenerating Serum", skin_type: "Combination", step: "Serum", img_url: "https://m.cremedelamer.com/media/export/cms/products/680x680/LM_SKU_5R0P01_105462_680x680_0.png")
 
 p13 = Product.create(brand: "Kiehl's", name: "Breakout Control Targeted Acne Spot Treatment" skin_type: "Normal", step: "Spot Treatment", img_url: "https://www.kiehls.com/on/demandware.static/-/Sites-kiehls-master-catalog/default/dw7a705210/nextgen/skin-care/acne-treatment/dermatologist-solutions/breakout-control-targeted-acne-spot-treatment/kiehls-acne-treatment-breakout-control-targeted-acne-spot-treatment-000-3605970988951-front.png")
 p14 = Product.create(brand: "La Mer", name: "The Treatment Lotion", skin_type: "Dry", step: "Spot Treatment", img_url: "https://m.cremedelamer.com/media/export/cms/products/680x680/LM_SKU_51KA01_47744_680x680_0.png")
