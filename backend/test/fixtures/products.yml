@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  name: MyString
+  skin_type: MyString
+  step: MyString
+  img_url: MyString
+
+two:
+  brand: MyString
+  name: MyString
+  skin_type: MyString
+  step: MyString
+  img_url: MyString
