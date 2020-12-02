@@ -45,4 +45,8 @@ p22 = Product.create(brand: "COSRX", name: "Aloe Soothing Sun Cream SPF 50+ PA++
 p23 = Product.create(brand: "Dr. Jart", name: "Every Sun Day UV Sunscreen SPF 50", skin_type: "Oily", step: "SPF", img_url: "https://www.sephora.com/productimages/sku/s2344547-main-zoom.jpg")
 p24 = Product.create(brand: "Banila Co", name: "It Radiant CC Cream SPF30 PA++,", skin_type: "Combination" step: "SPF", img_url: "https://k-skinmall.com/wp-content/uploads/2020/03/banila-co-It-Radiant-CC-SPF30-PA.jpg")
 
-up1 = UserProduct.create(user_id: u1.id, product_id: p1.id)
+up1 = UserProduct.create(user_id: u1.id, product_id: p2.id)
+up2 = UserProduct.create(user_id: u1.id, product_id: p6.id)
+up3 = UserProduct.create(user_id: u1.id, product_id: p11.id)
+up4 = UserProduct.create(user_id: u1.id, product_id: p19.id)
+up5 = UserProduct.create(user_id: u1.id, product_id: p23.id)
