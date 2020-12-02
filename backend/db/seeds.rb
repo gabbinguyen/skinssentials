@@ -6,14 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
 Product.create(brand: "COSRX", name: "Hyaluronic Acid Hydra Foam Cleanser", skin_type: "Dry", step: "Cleanser", img_url: " ")
 Product.create(brand: "COSRX", name: "Salicylic Acid Exfoliating Cleanser", skin_type: "Oily", step: "Cleanser", img_url: " ")
 Product.create(brand: "Innisfree", name: "Apple Juicy Liquid Foaming Cleanser", skin_type: "Normal", step: "Cleanser", img_url: " ")
 Product.create(brand: "Laneige", name: "Multi Cleanser", skin_type: "Combination", step: "Cleanser", img_url: " ")
 
 Product.create(brand: "")
-=======
 User.destroy_all
 UserProduct.destroy_all
 Product.destroy_all
@@ -24,4 +22,3 @@ u3 = User.create(name: 'Rachel', username: 'rsmith', skin_type: 'dry')
 
 p1 = Product.create(brand: '')
 up1 = UserProduct.create(user_id: u1.id, product_id: p1.id)
->>>>>>> a493461625022a517ca353524b4de8286dcf0f21
