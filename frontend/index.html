@@ -3,12 +3,56 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Skinssentials</title>
-    <script src="src/index.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <ul id='notes-list'></ul>
+
+    <!--Carousel Wrapper-->
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+  <!--Controls-->
+  <div class="controls-top">
+    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+        class="fas fa-chevron-right"></i></a>
+  </div>
+  <!--/.Controls-->
+
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+    <li data-target="#multi-item-example" data-slide-to="1"></li>
+    <li data-target="#multi-item-example" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+
+    <!--First slide-->
+    <!-- <div class="carousel-item active">
+
+
+
+    <!-- Product Container -->
+
+    <div class="all-products">
+      <div id="product-container">
+          
+      </div>
+    </div>
+
+<!--/.Carousel Wrapper-->
+
     <div id='update'></div>
+    <script src="src/product.js"></script>
+    <script src="src/index.js"></script>
+    <script src="src/app.js"></script>
 
   </body>
 </html>
