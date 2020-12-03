@@ -1,0 +1,9 @@
+.carousel-caption {
+    background-color: black;
+    height: 120px;
+    opacity: 0.8;
+    color: white;
+    bottom: 10%;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
