@@ -27,7 +27,7 @@ p8 = Product.create(brand: "belif", name: "Eucalyptus Herbal Extract Toner", ski
 
 p9 = Product.create(brand: "Mario Badescu", name: "Vitamin C Serum", skin_type: "Normal", step: "Serum", img_url: "https://www.mariobadescu.com/content/images/thumbs/0085191_vitamin-c-serum.jpeg")
 p10 = Product.create(brand: "Mario Badescu", name: "Hydro Moisturizer With Vitamin C", skin_type: "Dry", step: "Serum", img_url: "https://images.ulta.com/is/image/Ulta/2209853?$detail$")
-p11 = Product.create(brand: "Ciracle", name: "Pore Control Tightening Serum", skin_type: "Oily", step: "Serum", img_url: "Pore Control Tightening Serum")
+p11 = Product.create(brand: "Ciracle", name: "Pore Control Tightening Serum", skin_type: "Oily", step: "Serum", img_url: "https://cdn.shopify.com/s/files/1/0721/0715/products/Ciracle-Pore-Control-Tightening-Serum-30ml-Title.jpeg?v=1571438921")
 p12 = Product.create(brand: "La Mer", name: "The Regenerating Serum", skin_type: "Combination", step: "Serum", img_url: "https://m.cremedelamer.com/media/export/cms/products/680x680/LM_SKU_5R0P01_105462_680x680_0.png")
 
 p13 = Product.create(brand: "Kiehl's", name: "Breakout Control Targeted Acne Spot Treatment", skin_type: "Normal", step: "Spot Treatment", img_url: "https://www.kiehls.com/on/demandware.static/-/Sites-kiehls-master-catalog/default/dw7a705210/nextgen/skin-care/acne-treatment/dermatologist-solutions/breakout-control-targeted-acne-spot-treatment/kiehls-acne-treatment-breakout-control-targeted-acne-spot-treatment-000-3605970988951-front.png")
@@ -36,7 +36,7 @@ p15 = Product.create(brand: "Sunday Riley", name: "Good Genes All-In-One Lactic 
 p16 = Product.create(brand: "Kiehl's", name: "Blue Herbal Spot Treatment", skin_type: "Combination", step: "Spot Treatment", img_url: "https://www.kiehls.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-kiehls-master-catalog/default/dweec46da4/nextgen/skin-care/acne-treatment/blue-herbal/blue-herbal-spot-treatment/kiehls-acne-treatment-blue-herbal-spot-treatment-15ml-000-3605971302244-front.jpg?sw=465&sfrm=png&q=70")
 
 p17 = Product.create(brand: "Kiehl's", name: "Ultra Facial Moisturizer", skin_type: "Normal", step: "Moisturizer", img_url: "https://images.ulta.com/is/image/Ulta/2536686?op_sharpen=1&resMode=bilin&qlt=85&wid=800&hei=800&fmt=jpg")
-p18 = Product.create(brand: "belif", name: "The True Cream Moisturizing Bomb", skin_type: "Dry", step: "Moisturizer", img_url: "The True Cream Moisturizing Bomb")
+p18 = Product.create(brand: "belif", name: "The True Cream Moisturizing Bomb", skin_type: "Dry", step: "Moisturizer", img_url: "https://cdn.shopify.com/s/files/1/0094/5691/0395/products/MB_jumbo1_1200x.jpg?v=1578521981")
 p19 = Product.create(brand: "Missha", name: "Super Aqua Cell Renew Snail Essential Moisturizer", skin_type: "Oily", step: "Moisturizer", img_url: "https://assets.feelunique.com/f_auto,t_product_main/v1/live/product/main-image/101470/xm9y1ooamzmjyh2zri6q.jpg")
 p20 = Product.create(brand: "belif", name: "Creamy Deep Moist Moisturizer", skin_type: "Combination", step: "Moisturizer", img_url: "https://cdn.shopify.com/s/files/1/0094/5691/0395/products/52100334_01_900x.jpg?v=1548101678")
 
