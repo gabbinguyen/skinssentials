@@ -1,7 +1,7 @@
 class Api::V1::UserProductsController < ApplicationController
     def index
         @user_products = UserProduct.all 
-        render json: @user_products 
+        render json: @user_products
     end
 
     def show
