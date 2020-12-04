@@ -70,21 +70,36 @@ submitBtn.addEventListener('click', (event) => {
     if(usersListNames.indexOf(username.value)!== -1) {
         currentUser = usersList.filter( function(user){return (user.username==username.value)});
         userProducts = productsList.filter( function(product){return (product.skin_type==currentUser[0].skin_type)});
-        
-        console.log(userProducts)
-        
+            
         modal.style.display = "none";
         document.body.innerHTML = "";
-        displayUserView()
+        displayUserView(userProducts)
     } else {
         alert("This user does not exist, please try again.")
     }
 })
 
-function displayUserView(){
-    const userProductContainer = document.querySelector(".user-product-container")
-    const productCard = document.createElement("div")
-    productCard.className = 'card'
-    productCard.style = "width: 18rem;" 
+function displayUserView(userProducts){
+    console.log(userProducts)
+    const userProductContainer = document.getElementById("user-product-container")
+    userProducts.forEach( product => {
+        const userProductCard = document.createElement("div")
+        userProductCard.className = 'card'
+        userProductCard.style = "width: 18rem;" 
+        userProductCard.id = `product-card-${product.id}`
+        userProductCard.innerHTML = `
+            <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
+            <div class="card-body">
+            <h4 class="card-title">${product.name}</h4>
+            <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
+            <p class="card-text">
+                <li> For: ${product.skin_type} Skin </li>
+                <li> Step: ${product.step} </li></ul></p>
+            <a class="btn btn-primary"> Add to Cabinet</a>
+            </div>
+            </div
+        `
 
+        userProductContainer.append(userProductCard)
+    })
 }
