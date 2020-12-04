@@ -31,12 +31,10 @@ function renderProduct(product){
         <a class="btn btn-primary"> Add to Cabinet</a>
         </div>
         </div
-    `
-    
+    `    
     // document.querySelector('.btn-primary').style.display = "none";
 
     productContainer.append(productCard)
-
 }
 
 // function fetchUser() {
