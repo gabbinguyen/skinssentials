@@ -115,7 +115,7 @@ function fetchUserProducts() {
       
 
 function renderUserProduct(userProduct){
-    const x = userProduct.name.skin_type
+    const x = userProduct.user.skin_type
     console.log(x)
     const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
     const userProductCard = document.createElement("div")
