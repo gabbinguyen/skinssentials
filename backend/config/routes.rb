@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create, :update]
       resources :products, only: [:index, :show, :create, :update]
       resources :user_products, only: [:index, :show, :create, :update, :delete]
-      post "/login", to: "sessions#create"
+      post '/sessions', to: "sessions#create"
     end
   end
 end
