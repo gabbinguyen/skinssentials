@@ -4,9 +4,10 @@
   <head>
     <meta charset="utf-8">
 
-   <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Skinssentials</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> 
+   <title>Skinssentials</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
@@ -29,28 +30,70 @@
     </ul>
 
 
-    <!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+<!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-  <!--Controls-->
+<!--Controls-->
   <div class="controls-top">
     <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
     <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
         class="fas fa-chevron-right"></i></a>
   </div>
-  <!--/.Controls-->
+<!--/.Controls-->
 
-  <!--Indicators-->
+<!--Indicators-->
   <ol class="carousel-indicators">
     <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
     <li data-target="#multi-item-example" data-slide-to="1"></li>
     <li data-target="#multi-item-example" data-slide-to="2"></li>
   </ol>
-  <!--/.Indicators-->
+<!--/.Indicators-->
 
-  <!--Slides-->
+<!--Slides-->
   <div class="carousel-inner" role="listbox">
 
+<!--First slide-->
+<!-- <div class="carousel-item active"> -->
+
+<!-- Login  -->
+    <!-- Trigger/Open The Modal -->
+    <button class = "button" id="myBtn">Login</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" name="username" type="username" placeholder="Username">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input" name="password" type="password" placeholder="Password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-success">
+              Login
+            </button>
+          </p>
+        </div>  
+      </div>
+    </div>
+<!--/.Login  -->
     <!--First slide-->
     <!-- <div class="carousel-item active"> -->
 
@@ -59,24 +102,22 @@
 <!-- Trigger/Open The Modal -->
 <button id="myBtn">Open Modal</button>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
-</div>
   
-  <!-- Product Container -->
-
+<!-- Product Container -->
     <div class="all-products">
-      <div id="product-container">
-          
+      <div id="product-container">   
+
       </div>
     </div>
+<!--/.Product Container -->
+
+<!-- User Product Container -->
+    <div class= "user-products">
+      <div id = "user-product-container">
+
+      </div>
+    </div>
+<!--/.User Product Container -->
 
 <!--/.Carousel Wrapper-->
 
@@ -88,3 +129,5 @@
 
   </body>
 </html>
+
+
