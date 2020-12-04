@@ -4,11 +4,7 @@ let usersListNames = [];
 let usersList = [];
 let userProducts = [];
 let currentUser; 
-let categories = [];
-let Dry = []
-let Oily = []
-let Combination = []
-let Normal = []
+let productsList;
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchUsers()
@@ -34,12 +30,11 @@ function fetchProducts(){
       .then(renderUserProducts)}
 
 function renderUserProducts(products){ 
-    Dry = products.filter( function(product){return (product.skin_type=="Dry")} );
-    Oily = products.filter( function(product){return (product.skin_type=="Oily")} );
-    Combination = products.filter( function(product){return (product.skin_type=="Combination")} );
-    Normal = products.filter( function(product){return (product.skin_type=="Normal")} );
-    categories.push(Dry, Oily, Combination, Normal)
+    productsList = products
 }
+
+fetchProducts()
+
 
   // Get the modal
 var modal = document.getElementById("myModal");
@@ -73,21 +68,11 @@ const submitBtn = modalContent.querySelector("button[class='button is-success']"
 submitBtn.addEventListener('click', (event) => { 
 
     if(usersListNames.indexOf(username.value)!== -1) {
-        let test = usersList.filter( function(user){return (user.username==username.value)} );
-        currentUser = test
+        currentUser = usersList.filter( function(user){return (user.username==username.value)});
+        userProducts = productsList.filter( function(product){return (product.skin_type==currentUser[0].skin_type)});
         
-        // console.log(currentUser[0])
-        let userCategory = categories.filter(category => Dry);
-
-        // function(category){return (category==currentUser[0].skin_type)}
-        console.log(userCategory)
-        // for (let i = 0; i < categories.length; i++) {
-        //     categories[i] == currentUser[0].skin_type
-        // console.log(categories[i] == currentUser[0].skin_type)}
-
-        // for (category in categories) {
-        //     console.log(categories.skin_type)
-        // }
+        console.log(userProducts)
+        
         modal.style.display = "none";
         document.body.innerHTML = "";
         displayUserView()
