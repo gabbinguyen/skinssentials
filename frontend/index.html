@@ -21,11 +21,11 @@
       href="# role="button" aria-expanded="false" 
       aria-controls="new-user-form" style="margin: 10px;">Login</a>
     </li>
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link btn btn-primary" data-toggle="collapse" 
       href="#" role="button" aria-expanded="false" 
       aria-controls="new-user-form" style="margin: 10px;">Cabinet</a>
-    </li> -->
+    </li>
     </ul>
 
 
@@ -54,7 +54,26 @@
     <!--First slide-->
     <!-- <div class="carousel-item active">
 
- 
+     <!-- Cabinet Modal -->
+
+     <div class="modal fade" id="cabinet-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="cabinet-modal-label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cabinet-modal-label">Cabinet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="cabinet-cards-container" style="text-align: center; background-color: rgb(219, 219, 219);">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
 
     <!-- Product Container -->
@@ -68,9 +87,9 @@
 <!--/.Carousel Wrapper-->
 
     <div id='update'></div>
-    <script src="src/product.js"></script>
+
     <script src="src/index.js"></script>
-    <script src="src/app.js"></script>
+    <script src="src/userProduct.js"></script>
 
   </body>
 </html>

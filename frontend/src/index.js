@@ -1,4 +1,9 @@
+const productContainer = document.getElementById('product-container')
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    
+    
     fetchProducts()
    
     })
@@ -15,7 +20,6 @@ function fetchProducts() {
       
 
 function renderProduct(product){
-    const productContainer = document.getElementById('product-container')
     const productCard = document.createElement("div")
     productCard.className = 'card'
     productCard.style = "width: 18rem;"
@@ -28,7 +32,9 @@ function renderProduct(product){
         <p class="card-text">
             <li> For: ${product.skin_type} Skin </li>
             <li> Step: ${product.step} </li></ul></p>
-        <a class="btn btn-primary"> Add to Cabinet</a>
+        
+            <button type="button" id="product-button-${product.id}"
+             class="btn btn-primary">Add to Cabinet</button>
         </div>
         </div
     `
@@ -36,14 +42,43 @@ function renderProduct(product){
     // document.querySelector('.btn-primary').style.display = "none";
 
     productContainer.append(productCard)
+    const addToCabinetButton = document.getElementById(`product-button-${product.id}`)
+    addToCabinetButton.addEventListener('click', () => {
+        fetchCabinet()
+    })
+    
 
 }
 
-// function fetchUser() {
-//     document.
-//     const userURL = 'http://localhost:3000/api/v1/users'
 
-// }
-      
-  
-  
+
+function fetchCabinet() {
+    fetch('http://localhost:3000/api/v1/user_products')
+    .then(r => r.json())
+    .then(json => json.forEach(cabinet => {
+       
+       renderCabinet(cabinet)
+    }))
+    
+}
+
+function renderCabinet(cabinet){
+    console.log(cabinet)
+    const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
+    const newCabinetItem = document.createElement("div")
+    
+    newCabinetItem.innerHTML = `
+   
+    <div class="card-body">
+        <h5 class="card-title">${cabinet.id}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"> By: </h6>
+        <p class="card-text" style="font-size: 12px; letter-spacing: 1px;"></p>
+        <button type="button" id="remove-button-${cabinet.id}" class="btn btn-danger">Remove</button>
+    </div>
+    `
+    CabinetCardsContainer.append(newCabinetItem)
+   
+}
+function addToCabinet(product) {
+
+}
