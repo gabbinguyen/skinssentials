@@ -19,11 +19,23 @@
 .all-products {
     padding: 50px 50px 50px 50px;
     text-align: center;
-    background-color: thistle;
-    
-    
+    background-color: thistle; 
 }
 
+
+.user-products {
+  padding: 50px 50px 50px 50px;
+  text-align: center;
+  background-color: thistle; 
+}
+
+#user-product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 40px;
+  grid-row-gap: 30px;
+  background-color: thistle
+}
 
 .btn-primary {
     color: white;
