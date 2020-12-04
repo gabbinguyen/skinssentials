@@ -1,12 +1,18 @@
 const usersURL = "http://localhost:3000/api/v1/users"
 const productURL = 'http://localhost:3000/api/v1/products'
+let usersListNames = [];
 let usersList = [];
 let userProducts = [];
 let currentUser; 
-let oily = []
+let categories = [];
+let Dry = []
+let Oily = []
+let Combination = []
+let Normal = []
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchUsers()
+
 });
 
 function fetchUsers(){
@@ -17,24 +23,23 @@ function fetchUsers(){
 
 function renderUser(users){
     users.forEach(user => {
-        usersList.push(user.username)
+        usersListNames.push(user.username)
     })
+    usersList = users
 }
 
 function fetchProducts(){
     fetch(productURL)
       .then(resp => resp.json())
-      .then(renderUserProduct)
-}
+      .then(renderUserProducts)}
 
-function renderUserProduct(products){
-    products 
-    products.forEach(product => {
-        console.log(product.skin_type) 
-    })
+function renderUserProducts(products){ 
+    Dry = products.filter( function(product){return (product.skin_type=="Dry")} );
+    Oily = products.filter( function(product){return (product.skin_type=="Oily")} );
+    Combination = products.filter( function(product){return (product.skin_type=="Combination")} );
+    Normal = products.filter( function(product){return (product.skin_type=="Normal")} );
+    categories.push(Dry, Oily, Combination, Normal)
 }
-
-fetchProducts()
 
   // Get the modal
 var modal = document.getElementById("myModal");
@@ -67,8 +72,22 @@ const username = modalContent.querySelector("input[name='username']")
 const submitBtn = modalContent.querySelector("button[class='button is-success']")
 submitBtn.addEventListener('click', (event) => { 
 
-    if(usersList.indexOf(username.value)!== -1) {
-        currentUser = username.value
+    if(usersListNames.indexOf(username.value)!== -1) {
+        let test = usersList.filter( function(user){return (user.username==username.value)} );
+        currentUser = test
+        
+        // console.log(currentUser[0])
+        let userCategory = categories.filter(category => Dry);
+
+        // function(category){return (category==currentUser[0].skin_type)}
+        console.log(userCategory)
+        // for (let i = 0; i < categories.length; i++) {
+        //     categories[i] == currentUser[0].skin_type
+        // console.log(categories[i] == currentUser[0].skin_type)}
+
+        // for (category in categories) {
+        //     console.log(categories.skin_type)
+        // }
         modal.style.display = "none";
         document.body.innerHTML = "";
         displayUserView()
