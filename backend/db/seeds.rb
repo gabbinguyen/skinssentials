@@ -11,9 +11,9 @@ User.destroy_all
 UserProduct.destroy_all
 Product.destroy_all
 
-u1 = User.create(name: 'Sara', username: 'sbastian', skin_type: 'oily')
-u2 = User.create(name: 'Sienna', username: 'smori', skin_type: 'combination')
-u3 = User.create(name: 'Rachel', username: 'rsmith', skin_type: 'dry')
+u1 = User.create(name: 'Sara', username: 'sbastian', skin_type: 'Oily')
+u2 = User.create(name: 'Sienna', username: 'smori', skin_type: 'Combination')
+u3 = User.create(name: 'Rachel', username: 'rsmith', skin_type: 'Dry')
 
 p1 = Product.create(brand: "COSRX", name: "Hyaluronic Acid Hydra Foam Cleanser", skin_type: "Dry", step: "Cleanser", img_url: "https://akamai.poxo.com/beautyboxkorea/beautyboxkorea.cafe24.com/web/product/big/CIRACLE-COSRX-Hyaluronic-Acid-Hydra-Foam-Cleanser-150ml.jpg")
 p2 = Product.create(brand: "COSRX", name: "Salicylic Acid Exfoliating Cleanser", skin_type: "Oily", step: "Cleanser", img_url: "https://www.cosrx.com/media/catalog/product/s/a/salicylic-acid-daily-gentle-cleanser_1.png?quality=90&fit=bounds&height=&width=&canvas=:")
@@ -25,7 +25,7 @@ p6 = Product.create(brand: "Amore Pacific", name: "Treatment Toner", skin_type: 
 p7 = Product.create(brand: "belif", name: "Bergamot Herbal Extract Toner", skin_type: "Combination", step: "Toner", img_url: "https://cdn.shopify.com/s/files/1/0094/5691/0395/products/52100330_01_900x.jpg?v=1548101673")
 p8 = Product.create(brand: "belif", name: "Eucalyptus Herbal Extract Toner", skin_type: "Normal", step: "Toner", img_url: "https://cdn.shopify.com/s/files/1/0094/5691/0395/products/52100329_01_900x.jpg?v=1548101679")
 
-p9 = Product.create(brand: "Mario Badescu", name: "Vitamin C Serum", skin_type: "Normal", step: "Serum", img_url: "https://www.mariobadescu.com/content/images/thumbs/0085191_vitamin-c-serum.jpeg")
+p9 = Product.create(brand: "Mario Badescu", name: "Vitamin C Serum", skin_type: "Normal", step: "Serum", img_url: "https://slimages.macys.com/is/image/MCY/products/2/optimized/9327112_fpx.tif?$filterlrg$&wid=327")
 p10 = Product.create(brand: "Mario Badescu", name: "Hydro Moisturizer With Vitamin C", skin_type: "Dry", step: "Serum", img_url: "https://images.ulta.com/is/image/Ulta/2209853?$detail$")
 p11 = Product.create(brand: "Ciracle", name: "Pore Control Tightening Serum", skin_type: "Oily", step: "Serum", img_url: "https://cdn.shopify.com/s/files/1/0721/0715/products/Ciracle-Pore-Control-Tightening-Serum-30ml-Title.jpeg?v=1571438921")
 p12 = Product.create(brand: "La Mer", name: "The Regenerating Serum", skin_type: "Combination", step: "Serum", img_url: "https://m.cremedelamer.com/media/export/cms/products/680x680/LM_SKU_5R0P01_105462_680x680_0.png")
