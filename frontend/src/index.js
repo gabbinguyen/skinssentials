@@ -1,5 +1,5 @@
 const productContainer = document.getElementById('product-container')
-
+let currentUser
 document.addEventListener('DOMContentLoaded', () => {
 
     
@@ -44,7 +44,8 @@ function renderProduct(product){
     productContainer.append(productCard)
     const addToCabinetButton = document.getElementById(`product-button-${product.id}`)
     addToCabinetButton.addEventListener('click', () => {
-        fetchCabinet()
+        
+        fetchCabinet(product)
     })
     
 
@@ -52,14 +53,29 @@ function renderProduct(product){
 
 
 
-function fetchCabinet() {
-    fetch('http://localhost:3000/api/v1/user_products')
+function fetchCabinet(product) {
+
+    const data = {
+        user_id: currentUser.id,
+        product_id: product.id
+        
+    }
+
+    fetch('http://localhost:3000/api/v1/user_products', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify(data)
+    
     .then(r => r.json())
     .then(json => json.forEach(cabinet => {
-       
+       console.log(cabinet)
        renderCabinet(cabinet)
     }))
     
+})
 }
 
 function renderCabinet(cabinet){
@@ -78,7 +94,4 @@ function renderCabinet(cabinet){
     `
     CabinetCardsContainer.append(newCabinetItem)
    
-}
-function addToCabinet(product) {
-
 }
