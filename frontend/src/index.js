@@ -32,6 +32,9 @@ function renderProduct(product){
         </div>
         </div
     `
+    
+    // document.querySelector('.btn-primary').style.display = "none";
+
     productContainer.append(productCard)
 
 }

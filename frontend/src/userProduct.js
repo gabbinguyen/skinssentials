@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('click', (e) => {
+  e.target.
     fetchuserProducts()
     })
 
