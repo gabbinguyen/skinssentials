@@ -41,6 +41,8 @@ var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
+// var signupbtn = document.getElementById("button is-primary");
+
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -75,6 +77,8 @@ submitBtn.addEventListener('click', (event) => {
         const productContainer = document.getElementById('product-container')
         productContainer.innerHTML = " "
         displayUserView(userProducts)
+        btn.parentNode.removeChild(btn)
+        // signupbtn.parentNode.removeChild(signupbtn)
     } else {
         alert("This user does not exist, please try again.")
     }
