@@ -37,11 +37,5 @@ function renderProduct(product){
     productContainer.append(productCard)
 }
 
-// function fetchUser() {
-//     document.
-//     const userURL = 'http://localhost:3000/api/v1/users'
-
-// }
-      
   
   
