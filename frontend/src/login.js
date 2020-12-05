@@ -72,7 +72,8 @@ submitBtn.addEventListener('click', (event) => {
         userProducts = productsList.filter( function(product){return (product.skin_type==currentUser[0].skin_type)});
             
         modal.style.display = "none";
-        document.body.innerHTML = "";
+        const productContainer = document.getElementById('product-container')
+        productContainer.innerHTML = " "
         displayUserView(userProducts)
     } else {
         alert("This user does not exist, please try again.")
@@ -80,13 +81,15 @@ submitBtn.addEventListener('click', (event) => {
 })
 
 function displayUserView(userProducts){
-    console.log(userProducts)
     const userProductContainer = document.getElementById("user-product-container")
+    console.log(userProductContainer)
+
     userProducts.forEach( product => {
         const userProductCard = document.createElement("div")
         userProductCard.className = 'card'
         userProductCard.style = "width: 18rem;" 
         userProductCard.id = `product-card-${product.id}`
+        userProductCard.innerHTML = `abc`
         userProductCard.innerHTML = `
             <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
             <div class="card-body">
