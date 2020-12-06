@@ -101,13 +101,13 @@ function displayUserView(userProducts){
             
         })
     })
-    document.addEventListener('click', (e) => {
-        if(e.target.innerText== 'Cabinet') {
-    console.log(currentUser)
-     renderCabinet(currentUser)
-        }
-    })
-}
+//     document.addEventListener('click', (e) => {
+//         if(e.target.innerText== 'Cabinet') {
+    
+//      renderCabinet(currentUser)
+//         }
+//     })
+// }
 function addToCabinet(product, currentUser) {
    
     const data = {
@@ -141,7 +141,8 @@ function renderCabinet(currentUser) {
 
 function renderCabinet(user){
     const userP = user[0].products
-    
+    console.log(userP)
+
     userP.forEach(product => {
         const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
         const userProductCard = document.createElement("div")
@@ -172,4 +173,31 @@ function renderCabinet(user){
 
     }
 
+    // Get the modal
+var cabinetModal = document.getElementById("cabinet-modal");
 
+// Get the button that opens the modal
+var butn = document.getElementById("cabinet");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+butn.onclick = function() {
+  cabinetModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+  cabinetModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == cabinetModal) {
+    cabinetModal.style.display = "none";
+  }
+}
+
+
+}
