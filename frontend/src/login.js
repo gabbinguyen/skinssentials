@@ -138,23 +138,24 @@ function fetchCabinet(currentUser) {
 
 function renderCabinet(user){
     const userP = user.products
-    
+  
     userP.forEach(product => {
-        const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
         const userProductCard = document.createElement("div")
-        userProductCard.innerHTML = ''
+        console.log(userProductCard)
+        const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
+ 
         userProductCard.className = 'card'
         userProductCard.style.cssText = "width: 18rem; display: inline-block; margin-bottom: 50px;"
-        userProductCard.id = `user-product-card-${product.id}`
+        // userProductCard.id = `user-product-card-${product.id}`
         userProductCard.innerHTML = `
             <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">${product.name}</h4>
                 <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
-                <p class="card-text">
+                <p class="card-text" style= "font-size: 12px; letter-spacing: 1px;">
                     <li> For: ${product.skin_type} Skin </li>
                     <li> Step: ${product.step} </li></ul></p>
-            
+                    <br></br>
                 <button type="button" id="remove-button-${product.id}"
                  class="btn btn-danger">Remove</button>
                  
@@ -163,10 +164,10 @@ function renderCabinet(user){
         `
         
         CabinetCardsContainer.append(userProductCard)
-        console.log(CabinetCardsContainer)
-        // document.querySelector('.btn-primary').style.display = "none";
+     
     
     })
+   
  
 
     }

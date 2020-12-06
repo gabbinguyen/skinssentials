@@ -34,7 +34,7 @@ function renderProduct(product){
     `    
     // document.querySelector('.btn-primary').style.display = "none";
 
-    productContainer.append(productCard)
+    productContainer.appendChild(productCard)
 }
 
   
