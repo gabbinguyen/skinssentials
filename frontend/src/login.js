@@ -119,7 +119,7 @@ function addToCabinet(product, currentUser) {
         body: JSON.stringify(data)})
 
         }
-const cabinetButton = document.getElementById('cabinet')
+const cabinetButton = document.getElementById('cabinet-nav')
 cabinetButton.addEventListener('click', () => {
     fetchCabinet(currentUser)
 })
@@ -162,7 +162,7 @@ function renderCabinet(user){
             </div
         `
         
-        CabinetCardsContainer.appendChild(userProductCard)
+        CabinetCardsContainer.append(userProductCard)
         console.log(CabinetCardsContainer)
         // document.querySelector('.btn-primary').style.display = "none";
     
