@@ -101,13 +101,7 @@ function displayUserView(userProducts){
             
         })
     })
-//     document.addEventListener('click', (e) => {
-//         if(e.target.innerText== 'Cabinet') {
-    
-//      renderCabinet(currentUser)
-//         }
-//     })
-// }
+
 function addToCabinet(product, currentUser) {
    
     const data = {
@@ -124,25 +118,27 @@ function addToCabinet(product, currentUser) {
         },
         body: JSON.stringify(data)})
 
-        renderCabinet(currentUser)}
+        }
+const cabinetButton = document.getElementById('cabinet')
+cabinetButton.addEventListener('click', () => {
+    fetchCabinet(currentUser)
+})
 
-function renderCabinet(currentUser) {
+function fetchCabinet(currentUser) {
 
     fetch(`http://localhost:3000/api/v1/users/${currentUser[0].id}`)
     .then(r => r.json())
     .then(json => {
-                
+        
    renderCabinet(json)
         })
-
     
     }
     
 
 function renderCabinet(user){
-    const userP = user[0].products
-    console.log(userP)
-
+    const userP = user.products
+    
     userP.forEach(product => {
         const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
         const userProductCard = document.createElement("div")
@@ -153,51 +149,26 @@ function renderCabinet(user){
         userProductCard.innerHTML = `
             <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
             <div class="card-body">
-            <h4 class="card-title">${product.name}</h4>
-            <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
-            <p class="card-text">
-                <li> For: ${product.skin_type} Skin </li>
-                <li> Step: ${product.step} </li></ul></p>
+                <h4 class="card-title">${product.name}</h4>
+                <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
+                <p class="card-text">
+                    <li> For: ${product.skin_type} Skin </li>
+                    <li> Step: ${product.step} </li></ul></p>
             
-                <button type="button" id="product-button-${product.id}"
-                 class="btn btn-primary">Delete</button>
+                <button type="button" id="remove-button-${product.id}"
+                 class="btn btn-danger">Remove</button>
                  
             </div>
             </div
         `
-        CabinetCardsContainer.append(userProductCard)
+        
+        CabinetCardsContainer.appendChild(userProductCard)
+        console.log(CabinetCardsContainer)
         // document.querySelector('.btn-primary').style.display = "none";
     
     })
  
 
     }
-
-    // Get the modal
-var cabinetModal = document.getElementById("cabinet-modal");
-
-// Get the button that opens the modal
-var butn = document.getElementById("cabinet");
-
-// Get the <span> element that closes the modal
-var span2 = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-butn.onclick = function() {
-  cabinetModal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span2.onclick = function() {
-  cabinetModal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == cabinetModal) {
-    cabinetModal.style.display = "none";
-  }
-}
-
 
 }
