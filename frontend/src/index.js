@@ -15,6 +15,9 @@ function fetchProducts() {
       
 
 function renderProduct(product){
+   
+    const header = document.querySelector('.header-title')
+    header.innerHTML = 'Browse SkinCare Products'
     const productContainer = document.getElementById('product-container')
     const productCard = document.createElement("div")
     productCard.className = 'card'
@@ -28,7 +31,7 @@ function renderProduct(product){
         <p class="card-text">
             <li> For: ${product.skin_type} Skin </li>
             <li> Step: ${product.step} </li></ul></p>
-        <a class="btn btn-primary"> Add to Cabinet</a>
+        <a class="btn btn-primary" style="color: white"> Add to Cabinet</a>
         </div>
         </div
     `    

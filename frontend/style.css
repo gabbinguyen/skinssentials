@@ -37,7 +37,7 @@
   background-color: thistle
 }
 
-.btn-primary {
+.a.btn.btn-primary {
     color: white;
 }
 
@@ -82,3 +82,12 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+h1 {
+  font-weight: 500;
+  opacity: 1;
+  color: whitesmoke;
+  font-size: large;
+  opacity: 1;
+  letter-spacing: 1px;
+} 

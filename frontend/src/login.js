@@ -66,8 +66,10 @@ submitBtn.addEventListener('click', (event) => {
 })
 
 function displayUserView(userProducts){
-          
-
+    document.querySelector('.all-products').remove()  
+    
+    const header = document.querySelector('.header-title')
+    header.innerHTML = `Recommended Products for ${currentUser[0].name}'s Skin`
     const userProductContainer = document.getElementById("user-product-container")
 
     userProducts.forEach( product => {
@@ -84,7 +86,7 @@ function displayUserView(userProducts){
             <p class="card-text">
                 <li> For: ${product.skin_type} Skin </li>
                 <li> Step: ${product.step} </li></ul></p>
-            <a class="btn btn-primary"> Add to Cabinet</a>
+            <a class="btn btn-primary" style="color: white"> Add to Cabinet</a>
             </div>
             </div
         `
@@ -137,6 +139,8 @@ function fetchCabinet(currentUser) {
     
 
 function renderCabinet(user){
+   
+
     const userP = user.products
   
     userP.forEach(product => {
