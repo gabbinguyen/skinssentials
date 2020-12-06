@@ -44,7 +44,6 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementById("myClose");
-console.log(span)
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -71,17 +70,21 @@ submitBtn.addEventListener('click', (event) => {
     if(usersListNames.indexOf(username.value)!== -1) {
         currentUser = usersList.filter( function(user){return (user.username==username.value)});
         userProducts = productsList.filter( function(product){return (product.skin_type==currentUser[0].skin_type)});
-            
-        modal.style.display = "none";
-        const productContainer = document.getElementById('product-container')
-        productContainer.innerHTML = " "
-        displayUserView(userProducts)
-        btn.parentNode.removeChild(btn)
-        suBtn.parentNode.removeChild(suBtn)
+        renderNewView()
     } else {
         alert("This user does not exist, please try again or create a new account.")
     }
 })
+
+
+function renderNewView() { 
+    modal.style.display = "none";
+    const productContainer = document.getElementById('product-container')
+    productContainer.innerHTML = " "
+    displayUserView(userProducts)
+    btn.parentNode.removeChild(btn)
+    suBtn.parentNode.removeChild(suBtn)
+}
 
 function displayUserView(userProducts){
     const userProductContainer = document.getElementById("user-product-container")
