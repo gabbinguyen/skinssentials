@@ -77,7 +77,7 @@ submitBtn.addEventListener('click', (event) => {
         displayUserView(userProducts)
         btn.parentNode.removeChild(btn)
     } else {
-        alert("This user does not exist, please try again.")
+        alert("This user does not exist, please try again or create a new account.")
     }
 })
 
