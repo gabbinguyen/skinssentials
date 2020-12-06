@@ -43,7 +43,8 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementById("myClose");
+console.log(span)
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -56,13 +57,13 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
 
-const modalContent = document.querySelector(".modal-content")
+const modalContent = document.getElementById("modal-content")
 const username = modalContent.querySelector("input[name='username']")
 const submitBtn = modalContent.querySelector("button[class='button is-success']")
 submitBtn.addEventListener('click', (event) => { 
@@ -76,6 +77,7 @@ submitBtn.addEventListener('click', (event) => {
         productContainer.innerHTML = " "
         displayUserView(userProducts)
         btn.parentNode.removeChild(btn)
+        suBtn.parentNode.removeChild(suBtn)
     } else {
         alert("This user does not exist, please try again or create a new account.")
     }
