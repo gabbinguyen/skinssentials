@@ -32,7 +32,8 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementById("myClose");
+
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
     document.getElementById('carouselExampleCaptions').remove()
@@ -43,29 +44,38 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-const modalContent = document.querySelector(".modal-content")
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
+
+const modalContent = document.getElementById("modal-content")
 const username = modalContent.querySelector("input[name='username']")
 const submitBtn = modalContent.querySelector("button[class='button is-success']")
 submitBtn.addEventListener('click', (event) => {
     
     if(usersListNames.indexOf(username.value)!== -1) {
+            // document.getElementById('carouselExampleCaptions').remove()
+
         currentUser = usersList.filter( function(user){return (user.username==username.value)});
        
         userProducts = productsList.filter( function(product){return (product.skin_type==currentUser[0].skin_type)});
-        modal.style.display = "none";
-        const productContainer = document.getElementById('product-container')
-        productContainer.innerHTML = " "
-        displayUserView(userProducts)
-        btn.parentNode.removeChild(btn)
+        renderNewView()
     } else {
-        alert("This user does not exist, please try again.")
+        alert("This user does not exist, please try again or create a new account.")
     }
 })
+
+
+function renderNewView() { 
+    modal.style.display = "none";
+    const productContainer = document.getElementById('product-container')
+    productContainer.innerHTML = " "
+    displayUserView(userProducts)
+    btn.parentNode.removeChild(btn)
+    suBtn.parentNode.removeChild(suBtn)
+}
 
 function displayUserView(userProducts){
     document.querySelector('.all-products').remove()  
