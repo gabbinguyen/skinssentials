@@ -31,7 +31,7 @@ function renderProduct(product){
         <p class="card-text">
             <li> For: ${product.skin_type} Skin </li>
             <li> Step: ${product.step} </li></ul></p>
-        <a class="btn btn-primary" style="color: white"> Add to Cabinet</a>
+     
         </div>
         </div
     `    
