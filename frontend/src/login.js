@@ -145,7 +145,6 @@ function renderCabinet(user){
   
     userP.forEach(product => {
         const userProductCard = document.createElement("div")
-        console.log(userProductCard)
         const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
  
         userProductCard.className = 'card'
@@ -168,12 +167,32 @@ function renderCabinet(user){
         `
         
         CabinetCardsContainer.append(userProductCard)
-     
+        const button = document.getElementById(`remove-button-${product.id}`)
+        button.addEventListener('click', () => {
+           userProductCard.remove()
+            user.products.forEach(p => {
+                  if(p.id == product.id) {
+                    console.log(p)
+                  }
+                })
+            //    removeProduct(userProductCard, product, currentUser)
+            
+            
+        })
     
     })
    
- 
-
     }
-
 }
+
+function removeProduct(currentUser) {
+user_product.product_id = product_id
+
+    fetch(`http://localhost:3000/api/v1/users/${currentUser[0].id}`, {
+        method: "DELETE"
+
+       
+
+    })
+   
+    }
