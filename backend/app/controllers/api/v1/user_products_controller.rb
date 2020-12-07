@@ -24,9 +24,9 @@ class Api::V1::UserProductsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @user_product = UserProduct.find(params[:id])
-        @user_product.destroy
+        @user_product.delete
     end
 
     private
