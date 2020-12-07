@@ -35,6 +35,7 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
+    document.getElementById('carouselExampleCaptions').remove()
   modal.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
@@ -51,6 +52,7 @@ const modalContent = document.querySelector(".modal-content")
 const username = modalContent.querySelector("input[name='username']")
 const submitBtn = modalContent.querySelector("button[class='button is-success']")
 submitBtn.addEventListener('click', (event) => {
+    
     if(usersListNames.indexOf(username.value)!== -1) {
         currentUser = usersList.filter( function(user){return (user.username==username.value)});
        
