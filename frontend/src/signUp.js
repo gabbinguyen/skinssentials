@@ -151,7 +151,7 @@ function displayNewUserView(userProducts){
     
     function fetchCabinet(currentUser) {
     
-        fetch(`http://localhost:3000/api/v1/users/${currentUser[0].id}`)
+        fetch(`http://localhost:3000/api/v1/users/${currentUser.id}`)
         .then(r => r.json())
         .then(json => {
             
@@ -195,7 +195,7 @@ function displayNewUserView(userProducts){
               
        
                user.user_products.forEach(p => {
-                   if(p.id == product.id) {
+                   if(p.product_id == product.id) {
                     userProductCard.remove()   
                 
                    removeNewUserProduct(p)
@@ -219,10 +219,6 @@ function displayNewUserView(userProducts){
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                   },
-            })
-            .then(r => r.json())
-            .then(json => {
-                console.log(json)
             })
         }
     
