@@ -193,7 +193,15 @@ function removeProduct(p) {
 
        
         fetch(`http://localhost:3000/api/v1/user_products/${p.id}`, {
-            method: "DELETE"
+            method: "DELETE", 
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+        })
+        .then(r => r.json())
+        .then(json => {
+            console.log(json)
         })
     }
 
