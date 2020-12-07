@@ -184,7 +184,7 @@ function renderCabinet(user){
           
    
            user.user_products.forEach(p => {
-               if(p.id == product.id) {
+               if(p.product_id == product.id) {
                 userProductCard.remove()   
             
                removeProduct(p)
@@ -208,10 +208,6 @@ function removeProduct(p) {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
               },
-        })
-        .then(r => r.json())
-        .then(json => {
-            console.log(json)
         })
     }
 
