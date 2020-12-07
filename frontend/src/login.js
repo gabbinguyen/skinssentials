@@ -35,6 +35,7 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
+    document.getElementById('carouselExampleCaptions').remove()
   modal.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
@@ -51,6 +52,7 @@ const modalContent = document.querySelector(".modal-content")
 const username = modalContent.querySelector("input[name='username']")
 const submitBtn = modalContent.querySelector("button[class='button is-success']")
 submitBtn.addEventListener('click', (event) => {
+    
     if(usersListNames.indexOf(username.value)!== -1) {
         currentUser = usersList.filter( function(user){return (user.username==username.value)});
        
@@ -66,8 +68,10 @@ submitBtn.addEventListener('click', (event) => {
 })
 
 function displayUserView(userProducts){
-          
-
+    document.querySelector('.all-products').remove()  
+    
+    const header = document.querySelector('.header-title')
+    header.innerHTML = `Recommended Products for ${currentUser[0].name}'s Skin`
     const userProductContainer = document.getElementById("user-product-container")
 
     userProducts.forEach( product => {
@@ -84,7 +88,7 @@ function displayUserView(userProducts){
             <p class="card-text">
                 <li> For: ${product.skin_type} Skin </li>
                 <li> Step: ${product.step} </li></ul></p>
-            <a class="btn btn-primary"> Add to Cabinet</a>
+            <a class="btn btn-primary" style="color: white"> Add to Cabinet</a>
             </div>
             </div
         `
@@ -101,13 +105,7 @@ function displayUserView(userProducts){
             
         })
     })
-    document.addEventListener('click', (e) => {
-        if(e.target.innerText== 'Cabinet') {
-    console.log(currentUser)
-     renderCabinet(currentUser)
-        }
-    })
-}
+
 function addToCabinet(product, currentUser) {
    
     const data = {
@@ -124,52 +122,88 @@ function addToCabinet(product, currentUser) {
         },
         body: JSON.stringify(data)})
 
-        renderCabinet(currentUser)}
+        }
+const cabinetButton = document.getElementById('cabinet-nav')
+cabinetButton.addEventListener('click', () => {
+    fetchCabinet(currentUser)
+})
 
-function renderCabinet(currentUser) {
+function fetchCabinet(currentUser) {
 
     fetch(`http://localhost:3000/api/v1/users/${currentUser[0].id}`)
     .then(r => r.json())
     .then(json => {
-                
+        
    renderCabinet(json)
         })
-
     
     }
     
 
 function renderCabinet(user){
-    const userP = user[0].products
-    
+   
+
+    const userP = user.products
+  
     userP.forEach(product => {
-        const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
         const userProductCard = document.createElement("div")
-        userProductCard.innerHTML = ''
+        const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
+ 
         userProductCard.className = 'card'
         userProductCard.style.cssText = "width: 18rem; display: inline-block; margin-bottom: 50px;"
-        userProductCard.id = `user-product-card-${product.id}`
+        // userProductCard.id = `user-product-card-${product.id}`
         userProductCard.innerHTML = `
             <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
             <div class="card-body">
-            <h4 class="card-title">${product.name}</h4>
-            <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
-            <p class="card-text">
-                <li> For: ${product.skin_type} Skin </li>
-                <li> Step: ${product.step} </li></ul></p>
-            
-                <button type="button" id="product-button-${product.id}"
-                 class="btn btn-primary">Delete</button>
+                <h4 class="card-title">${product.name}</h4>
+                <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
+                <p class="card-text" style= "font-size: 12px; letter-spacing: 1px;">
+                    <li> For: ${product.skin_type} Skin </li>
+                    <li> Step: ${product.step} </li></ul></p>
+                    <br></br>
+                <button type="button" id="remove-button-${product.id}"
+                 class="btn btn-danger">Remove</button>
                  
             </div>
             </div
         `
+        
         CabinetCardsContainer.append(userProductCard)
-        // document.querySelector('.btn-primary').style.display = "none";
+        const button = document.getElementById(`remove-button-${product.id}`)
+        button.addEventListener('click', () => {
+          
+   
+           user.user_products.forEach(p => {
+               if(p.id == product.id) {
+                userProductCard.remove()   
+            
+               removeProduct(p)
+                    }
+                })
+     
+            })
     
-    })
- 
-
+    
+        })
+   
     }
 
+}
+function removeProduct(p) {
 
+       
+        fetch(`http://localhost:3000/api/v1/user_products/${p.id}`, {
+            method: "DELETE", 
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+        })
+        .then(r => r.json())
+        .then(json => {
+            console.log(json)
+        })
+    }
+
+   
+    
