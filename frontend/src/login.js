@@ -169,30 +169,31 @@ function renderCabinet(user){
         CabinetCardsContainer.append(userProductCard)
         const button = document.getElementById(`remove-button-${product.id}`)
         button.addEventListener('click', () => {
-           userProductCard.remove()
-            user.products.forEach(p => {
-                  if(p.id == product.id) {
-                    console.log(p)
-                  }
+          
+   
+           user.user_products.forEach(p => {
+               if(p.id == product.id) {
+                userProductCard.remove()   
+            
+               removeProduct(p)
+                    }
                 })
-            //    removeProduct(userProductCard, product, currentUser)
-            
-            
-        })
+     
+            })
     
-    })
+    
+        })
    
     }
+
 }
-
-function removeProduct(currentUser) {
-user_product.product_id = product_id
-
-    fetch(`http://localhost:3000/api/v1/users/${currentUser[0].id}`, {
-        method: "DELETE"
+function removeProduct(p) {
 
        
-
-    })
-   
+        fetch(`http://localhost:3000/api/v1/user_products/${p.id}`, {
+            method: "DELETE"
+        })
     }
+
+   
+    

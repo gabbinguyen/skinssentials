@@ -91,3 +91,7 @@ h1 {
   opacity: 1;
   letter-spacing: 1px;
 } 
+
+.carousel-inner{
+  background-color: thistle;
+}
