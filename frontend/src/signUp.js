@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const oily = suContent.querySelector('input[name="oily"]')
   const normal = suContent.querySelector('input[name="normal"]')
   const combo = suContent.querySelector('input[name="combination"]')
+  console.log(submitBtn)
+  console.log(createBtn)
+  console.log(name)
+
   let skin_type;
 
 createBtn.addEventListener('click', (event) => {
@@ -69,6 +73,159 @@ createBtn.addEventListener('click', (event) => {
         currentUser = object
         userProducts = productsList.filter( function(product){return (product.skin_type==currentUser.skin_type)});
         suModal.style.display = "none";
-        renderNewView()
+        renderNewUserView()
       });
 })
+
+
+function renderNewUserView() { 
+    modal.style.display = "none";
+    const productContainer = document.getElementById('product-container')
+    productContainer.innerHTML = " "
+    displayNewUserView(userProducts)
+    btn.parentNode.removeChild(btn)
+    suBtn.parentNode.removeChild(suBtn)
+}
+
+function displayNewUserView(userProducts){
+    document.querySelector('.all-products').remove()  
+    
+    const header = document.querySelector('.header-title')
+    header.innerHTML = `Recommended Products for ${currentUser.name}'s Skin`
+    const userProductContainer = document.getElementById("user-product-container")
+
+    userProducts.forEach( product => {
+        const userProductCard = document.createElement("div")
+        userProductCard.className = 'card'
+        userProductCard.style = "width: 18rem;" 
+        userProductCard.id = `product-card-${product.id}`
+        userProductCard.innerHTML = `abc`
+        userProductCard.innerHTML = `
+            <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
+            <div class="card-body">
+            <h4 class="card-title">${product.name}</h4>
+            <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
+            <p class="card-text">
+                <li> For: ${product.skin_type} Skin </li>
+                <li> Step: ${product.step} </li></ul></p>
+            <a class="btn btn-primary" style="color: white"> Add to Cabinet</a>
+            </div>
+            </div
+        `
+
+        userProductContainer.append(userProductCard)
+        const productCard = document.getElementById(`product-card-${product.id}`)
+ 
+
+        productCard.addEventListener('click', (e) => {
+            if(e.target.innerHTML = 'Add to Cabinet') {
+                addToNewUserCabinet(product, currentUser)
+                alert('Added!')
+            }
+            
+        })
+    })
+
+
+    function addToNewUserCabinet(product, currentUser) {
+   
+        const data = {
+            user_id: currentUser.id,
+            product_id: product.id
+            
+        }
+    
+        fetch('http://localhost:3000/api/v1/user_products', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(data)})
+    
+            }
+    const cabinetButton = document.getElementById('cabinet-nav')
+    cabinetButton.addEventListener('click', () => {
+        fetchCabinet(currentUser)
+    })
+    
+    function fetchCabinet(currentUser) {
+    
+        fetch(`http://localhost:3000/api/v1/users/${currentUser[0].id}`)
+        .then(r => r.json())
+        .then(json => {
+            
+       renderNewCabinet(json)
+            })
+        
+        }
+        
+    
+    function renderNewCabinet(user){
+       
+    
+        const userP = user.products
+      
+        userP.forEach(product => {
+            const userProductCard = document.createElement("div")
+            const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
+     
+            userProductCard.className = 'card'
+            userProductCard.style.cssText = "width: 18rem; display: inline-block; margin-bottom: 50px;"
+            // userProductCard.id = `user-product-card-${product.id}`
+            userProductCard.innerHTML = `
+                <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">${product.name}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted"${product.brand}</h6>
+                    <p class="card-text" style= "font-size: 12px; letter-spacing: 1px;">
+                        <li> For: ${product.skin_type} Skin </li>
+                        <li> Step: ${product.step} </li></ul></p>
+                        <br></br>
+                    <button type="button" id="remove-button-${product.id}"
+                     class="btn btn-danger">Remove</button>
+                     
+                </div>
+                </div
+            `
+            
+            CabinetCardsContainer.append(userProductCard)
+            const button = document.getElementById(`remove-button-${product.id}`)
+            button.addEventListener('click', () => {
+              
+       
+               user.user_products.forEach(p => {
+                   if(p.id == product.id) {
+                    userProductCard.remove()   
+                
+                   removeNewUserProduct(p)
+                        }
+                    })
+         
+                })
+        
+        
+            })
+       
+        }
+    
+    }
+    function removeNewUserProduct(p) {
+    
+           
+            fetch(`http://localhost:3000/api/v1/user_products/${p.id}`, {
+                method: "DELETE", 
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                  },
+            })
+            .then(r => r.json())
+            .then(json => {
+                console.log(json)
+            })
+        }
+    
+       
+        
+    
