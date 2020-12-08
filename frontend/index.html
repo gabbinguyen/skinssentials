@@ -38,35 +38,29 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
-
-   
-
-      <a class="navbar-item" id="cabinet-nav" href="#cabinet-modal" 
-      data-toggle="modal" data-target="#cabinet-modal" style="margin: 10px;">Cabinet 
-      </a>
-        
-  
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
+        <a class="navbar-link" id="view by">
+          View Products By Step
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
+          <a class="navbar-item" id = 'Cleanser'>
+            Cleansers
           </a>
-          <a class="navbar-item">
-            Jobs
+          <a class="navbar-item" id = 'Toner'> 
+            Toners
           </a>
-          <a class="navbar-item">
-            Contact
+          <a class="navbar-item" id = 'Serum'> 
+            Serums
           </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
+          <a class="navbar-item" id = 'Moisturizer'> 
+            Moisturizers
+          </a>
+          <a class="navbar-item" id = 'SPF'> 
+            SPF
+          </a>
+          <a class="navbar-item" id = 'All'> 
+            All Products
           </a>
         </div>
       </div>
@@ -75,6 +69,9 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
+          <button class = "button" id="cabinet-nav" href="#cabinet-modal" 
+          data-toggle="modal" data-target="#cabinet-modal" style="margin: 10px;">Cabinet 
+        </button>
       <!-- Sign up Button -->
           <!-- Trigger/Open The Modal -->
           <button class = "button" id="suBtn">Create Account</button>
@@ -304,6 +301,7 @@
     <div class="all-products">
  
       <div id="product-container">   
+
 
       </div>
     </div>

@@ -37,9 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const oily = suContent.querySelector('input[name="oily"]')
   const normal = suContent.querySelector('input[name="normal"]')
   const combo = suContent.querySelector('input[name="combination"]')
-  console.log(submitBtn)
-  console.log(createBtn)
-  console.log(name)
 
   let skin_type;
 
@@ -79,12 +76,16 @@ createBtn.addEventListener('click', (event) => {
 
 
 function renderNewUserView() { 
+
     modal.style.display = "none";
     const productContainer = document.getElementById('product-container')
     productContainer.innerHTML = " "
     displayNewUserView(userProducts)
     btn.parentNode.removeChild(btn)
     suBtn.parentNode.removeChild(suBtn)
+    cabinetBtn.style.display = "block"
+    const navbarDropdownBtn = document.querySelector(".navbar-link")
+    navbarDropdownBtn.style.display = "none"
 }
 
 function displayNewUserView(userProducts){
