@@ -36,7 +36,7 @@ var span = document.getElementById("myClose");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-    document.getElementById('carouselExampleCaptions').remove()
+    // document.getElementById('carouselExampleCaptions').remove()
   modal.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
@@ -72,9 +72,14 @@ function renderNewView() {
     modal.style.display = "none";
     const productContainer = document.getElementById('product-container')
     productContainer.innerHTML = " "
+    cabinetBtn.style.display = "block"
     displayUserView(userProducts)
+    const viewByBtn = document.getElementById("view by")
+    viewByBtn.parentNode.removeChild(viewByBtn)
     btn.parentNode.removeChild(btn)
     suBtn.parentNode.removeChild(suBtn)
+    const navbarDropdownBtn = document.querySelector(".navbar-link")
+    navbarDropdownBtn.style.display = "none"
 }
 
 function displayUserView(userProducts){
