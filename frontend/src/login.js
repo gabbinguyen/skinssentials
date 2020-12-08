@@ -192,9 +192,18 @@ function renderCabinet(user){
         button.addEventListener('click', () => {
           
    
-           user.user_products.forEach(p => {
-               if(p.product_id == product.id) {
-                userProductCard.remove()   
+      
+                user.user_products.forEach(p => {
+                    if(p.product_id == product.id) {
+                     userProductCard.remove()   
+                 document.getElementById('cabinet-modal-label').innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                 <strong>Removed!</strong> 
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               My Cabinet`
+               $('.alert-danger').alert('dispose')
             
                removeProduct(p)
                     }
