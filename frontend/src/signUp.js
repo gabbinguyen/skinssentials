@@ -87,6 +87,7 @@ function renderNewUserView() {
     btn.parentNode.removeChild(btn)
     suBtn.parentNode.removeChild(suBtn)
     cabinetBtn.style.display = "block"
+    logoutBtn.style.display = "block"
     navbarDropdownBtn.style.display = "none"
 }
 

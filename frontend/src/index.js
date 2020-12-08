@@ -1,10 +1,11 @@
 const cabinetBtn = document.getElementById("cabinet-nav")
+const logoutBtn = document.getElementById("log out")
 let step
 
 document.addEventListener('DOMContentLoaded', () => {
     cabinetBtn.style.display = "none"
+    logoutBtn.style.display = "none"
     fetchProducts()
-   
     })
 
 function fetchProducts() {
@@ -14,7 +15,7 @@ function fetchProducts() {
       .then(res => res.json())
       .then(json => json.forEach(product => {
         renderProduct(product)} ) 
-      )}
+)}
       
 
 function renderProduct(product){
