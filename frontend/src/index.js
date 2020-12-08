@@ -19,7 +19,7 @@ function fetchProducts() {
 
 function renderProduct(product){
     const header = document.querySelector('.header-title')
-    header.innerHTML = 'Browse SkinCare Products'
+    header.innerHTML = 'Browse Skincare Products'
     const productContainer = document.getElementById('product-container')
     const productCard = document.createElement("div")
     productCard.className = 'card'
@@ -76,3 +76,5 @@ navbarDropdown.addEventListener('click', (event) => {
 }
 
 })
+
+

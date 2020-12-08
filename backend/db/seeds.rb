@@ -180,7 +180,7 @@ u3 = User.create(name: 'Rachel', username: 'rsmith', skin_type: 'Dry')
     spf20 =	Product.create(brand: "First Aid Beauty", name: "Weightless Liquid Mineral SPF 30", skin_type: "Combination", step: "SPF", img_url: "https://images.ulta.com/is/image/Ulta/2559076?op_sharpen=1&resMode=bilin&qlt=85&wid=800&hei=800&fmt=jpg")
 
 # user_product associations
-up1 = UserProduct.create(user_id: u1.id, product_id: c1.id)
+up1 = UserProduct.create(user_id: u1.id, product_id: c2.id)
 up2 = UserProduct.create(user_id: u1.id, product_id: t6.id)
 up3 = UserProduct.create(user_id: u1.id, product_id: s11.id)
 up4 = UserProduct.create(user_id: u1.id, product_id: m19.id)

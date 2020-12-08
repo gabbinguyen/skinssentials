@@ -121,6 +121,15 @@ function displayUserView(userProducts){
                 $('.alert').alert('dispose')
                
                 addToCabinet(product, currentUser)
+                header.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Added!</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              Recommended Products for ${currentUser[0].name}'s Skin`
+                $('.alert').alert('dispose')
+                // alert('Added!')
             }
             
         })
@@ -145,6 +154,8 @@ function addToCabinet(product, currentUser) {
         }
 const cabinetButton = document.getElementById('cabinet-nav')
 cabinetButton.addEventListener('click', () => {
+    const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
+    CabinetCardsContainer.innerHTML = " "
     fetchCabinet(currentUser)
 })
 
@@ -168,7 +179,7 @@ function renderCabinet(user){
     userP.forEach(product => {
         const userProductCard = document.createElement("div")
         const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
-        document.querySelector('.carousel-caption').remove()
+        // document.querySelector('.carousel-caption').remove()
         userProductCard.className = 'card'
         userProductCard.style.cssText = "width: 18rem; display: inline-block; margin-bottom: 50px;"
         userProductCard.innerHTML = `
@@ -192,19 +203,17 @@ function renderCabinet(user){
         button.addEventListener('click', () => {
           
    
-      
-                user.user_products.forEach(p => {
-                    if(p.product_id == product.id) {
-                     userProductCard.remove()   
-                 document.getElementById('cabinet-modal-label').innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                 <strong>Removed!</strong> 
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                   <span aria-hidden="true">&times;</span>
-                 </button>
-               </div>
-               My Cabinet`
-               $('.alert-danger').alert('dispose')
-            
+           user.user_products.forEach(p => {
+               if(p.product_id == product.id) {
+                userProductCard.remove()   
+                document.getElementById('cabinet-modal-label').innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Removed!</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              My Cabinet`
+              $('.alert-danger').alert('dispose')
                removeProduct(p)
                     }
                 })
