@@ -109,12 +109,18 @@ function displayUserView(userProducts){
 
         userProductContainer.append(userProductCard)
         const productCard = document.getElementById(`product-card-${product.id}`)
- 
-
         productCard.addEventListener('click', (e) => {
             if(e.target.innerHTML = 'Add to Cabinet') {
+                header.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Added!</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              Recommended Products for ${currentUser[0].name}'s Skin`
+                $('.alert').alert('dispose')
+               
                 addToCabinet(product, currentUser)
-                alert('Added!')
             }
             
         })
@@ -186,9 +192,18 @@ function renderCabinet(user){
         button.addEventListener('click', () => {
           
    
-           user.user_products.forEach(p => {
-               if(p.product_id == product.id) {
-                userProductCard.remove()   
+      
+                user.user_products.forEach(p => {
+                    if(p.product_id == product.id) {
+                     userProductCard.remove()   
+                 document.getElementById('cabinet-modal-label').innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                 <strong>Removed!</strong> 
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+               My Cabinet`
+               $('.alert-danger').alert('dispose')
             
                removeProduct(p)
                     }
