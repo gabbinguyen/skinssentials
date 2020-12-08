@@ -73,6 +73,7 @@ function renderNewView() {
     const productContainer = document.getElementById('product-container')
     productContainer.innerHTML = " "
     cabinetBtn.style.display = "block"
+    logoutBtn.style.display = "block"
     displayUserView(userProducts)
     const viewByBtn = document.getElementById("view by")
     viewByBtn.parentNode.removeChild(viewByBtn)
@@ -227,8 +228,6 @@ function renderCabinet(user){
 
 }
 function removeProduct(p) {
-
-       
         fetch(`http://localhost:3000/api/v1/user_products/${p.id}`, {
             method: "DELETE", 
             headers: {
@@ -238,5 +237,3 @@ function removeProduct(p) {
         })
     }
 
-   
-    
