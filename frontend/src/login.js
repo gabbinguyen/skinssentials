@@ -156,16 +156,15 @@ function fetchCabinet(currentUser) {
 
 function renderCabinet(user){
    
-
+    
     const userP = user.products
   
     userP.forEach(product => {
         const userProductCard = document.createElement("div")
         const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
- 
+        document.querySelector('.carousel-caption').remove()
         userProductCard.className = 'card'
         userProductCard.style.cssText = "width: 18rem; display: inline-block; margin-bottom: 50px;"
-        // userProductCard.id = `user-product-card-${product.id}`
         userProductCard.innerHTML = `
             <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
             <div class="card-body">
