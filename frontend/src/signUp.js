@@ -1,3 +1,6 @@
+const navbarDropdownBtn = document.querySelector(".navbar-link")
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
 });
@@ -84,7 +87,6 @@ function renderNewUserView() {
     btn.parentNode.removeChild(btn)
     suBtn.parentNode.removeChild(suBtn)
     cabinetBtn.style.display = "block"
-    const navbarDropdownBtn = document.querySelector(".navbar-link")
     navbarDropdownBtn.style.display = "none"
 }
 

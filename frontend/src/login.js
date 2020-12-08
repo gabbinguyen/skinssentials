@@ -78,7 +78,6 @@ function renderNewView() {
     viewByBtn.parentNode.removeChild(viewByBtn)
     btn.parentNode.removeChild(btn)
     suBtn.parentNode.removeChild(suBtn)
-    const navbarDropdownBtn = document.querySelector(".navbar-link")
     navbarDropdownBtn.style.display = "none"
 }
 
