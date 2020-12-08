@@ -109,10 +109,17 @@ function displayUserView(userProducts){
 
         userProductContainer.append(userProductCard)
         const productCard = document.getElementById(`product-card-${product.id}`)
- 
-
         productCard.addEventListener('click', (e) => {
             if(e.target.innerHTML = 'Add to Cabinet') {
+                header.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Added!</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              Recommended Products for ${currentUser[0].name}'s Skin`
+                $('.alert').alert('dispose')
+               
                 addToCabinet(product, currentUser)
                 header.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Added!</strong> 
@@ -166,16 +173,15 @@ function fetchCabinet(currentUser) {
 
 function renderCabinet(user){
    
-
+    
     const userP = user.products
   
     userP.forEach(product => {
         const userProductCard = document.createElement("div")
         const CabinetCardsContainer = document.getElementById("cabinet-cards-container")
- 
+        // document.querySelector('.carousel-caption').remove()
         userProductCard.className = 'card'
         userProductCard.style.cssText = "width: 18rem; display: inline-block; margin-bottom: 50px;"
-        // userProductCard.id = `user-product-card-${product.id}`
         userProductCard.innerHTML = `
             <img src="${product.img_url}" class="card-img-top" alt="Card image cap">
             <div class="card-body">
